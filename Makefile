@@ -31,7 +31,7 @@ all: $(LIBFT) $(MLX) $(NAME)
 $(NAME): $(OBJS)
 	@echo "$(GRAY)Linking $(NAME)..."
 	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) $(MLXFLAGS) -o $(NAME)
-	@echo "$(GREEN)$(NAME) has been created."
+	@echo "$(GREEN)$(NAME) has been created successfully."
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -41,12 +41,12 @@ $(OBJDIR)/%.o: %.c
 $(LIBFT):
 	@echo "$(GRAY)Building Libft..."
 	@make -C $(LIBFTDIR) > /dev/null
-	@echo "$(GREEN)Libft has been created."
+	@echo "$(GREEN)Libft has been created successfully."
 
 $(MLX):
 	@echo "$(GRAY)Building MiniLibX..."
 	@make -C $(MLXDIR) > /dev/null
-	@echo "$(GREEN)MiniLibX has been created."
+	@echo "$(GREEN)MiniLibX has been created successfully."
 
 clean:
 	@echo "$(ORANGE)Cleaning object files..."
