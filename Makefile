@@ -1,6 +1,7 @@
 # Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx -L/usr/lib/X11 -lXext -lX11
 
 # Directories
 SRCDIR = src
@@ -29,7 +30,7 @@ all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GRAY)Linking $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx -lXext -lX11 -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) $(MLXFLAGS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) has been created."
 
 $(OBJDIR)/%.o: %.c
