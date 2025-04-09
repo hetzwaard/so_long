@@ -1,7 +1,9 @@
 # Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx -L/usr/lib/X11 -lXext -lX11
+LIBS = -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx42 -ldl -lglfw -pthread -lm
+INCLUDES = -Iinclude
+MLXFLAGS = $(LIBS) $(INCLUDES)
 
 # Directories
 SRCDIR = src
@@ -9,8 +11,8 @@ OBJDIR = objects
 INCDIR = include
 LIBFTDIR = include/libft
 LIBFT = $(LIBFTDIR)/libft.a
-MLXDIR = include/mlx
-MLX = $(MLXDIR)/libmlx.a
+MLXDIR = include/MLX42/build
+MLX = $(MLXDIR)/libmlx42.a
 
 # Source files and object files
 SRCS = $(SRCDIR)/main.c \
@@ -30,7 +32,7 @@ all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GRAY)Linking $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) $(MLXFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) $(LIBFT) $(MLXFLAGS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) has been created successfully."
 
 $(OBJDIR)/%.o: %.c
@@ -44,9 +46,10 @@ $(LIBFT):
 	@echo "$(GREEN)Libft has been created successfully."
 
 $(MLX):
-	@echo "$(GRAY)Building MiniLibX..."
-	@make -C $(MLXDIR) > /dev/null
-	@echo "$(GREEN)MiniLibX has been created successfully."
+	@echo "$(GRAY)Building MLX42..."
+	@cmake -S include/MLX42 -B include/MLX42/build > /dev/null
+	@cmake --build include/MLX42/build > /dev/null
+	@echo "$(GREEN)MLX42 has been created successfully."
 
 clean:
 	@echo "$(ORANGE)Cleaning object files..."
