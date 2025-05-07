@@ -19,7 +19,7 @@
 typedef struct s_map
 {
 	mlx_t		*mlx;
-	mlx_image_t	player;
+	mlx_image_t	*player;
 	mlx_image_t	*exit;
 	mlx_image_t	*wall;
 	mlx_image_t	*space;
@@ -41,3 +41,5 @@ char	**map_read(int fd, int size);
 int		map_line(int fd);
 void		map_init(t_map *map);
 void		map_name(char *str);
+char	**map_dup(t_map *map);
+void	flood_fill(t_map *map);

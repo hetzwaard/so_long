@@ -37,5 +37,9 @@ int	main(int argc, char **argv)
 		error_exit(0);
 	map.map = map_read(open(argv[1], O_RDONLY), map_line(fd));
 	map_init(&map);
+	flood_fill(&map);
+	map.mlx = mlx_init(map.x * 128, map.y * 128, "so_long", false);
+	if (!map.mlx)
+		error_exit(2);
 	return (0);
 }

@@ -12,6 +12,23 @@
 
 #include "../../include/so_long.h"
 
+char	**map_dup(t_map *map)
+{
+	char	**map_dup;
+	int		i;
+
+	i = 0;
+	map_dup = ft_calloc(map->y + 1, sizeof(char *));
+	if (!map_dup)
+		exit(1);
+	while (map->map[i])
+	{
+		map_dup[i] = ft_strdup(map->map[i]);
+		i++;
+	}
+	return (map_dup);
+}
+
 void	map_name(char *str)
 {
 	while (*str != '.')
