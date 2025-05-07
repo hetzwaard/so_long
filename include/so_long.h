@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:25:18 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/04/09 23:47:59 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/07 04:26:55 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,3 +14,24 @@
 #include "libft/include/libft.h"
 #include <stdlib.h>
 #include <unistd.h>
+
+typedef struct s_map
+{
+	mlx_t	*mlx;
+	mlx_image_t	*player;
+	mlx_image_t	*exit;
+	mlx_image_t	*wall;
+	mlx_image_t	*space;
+	mlx_image_t	*collect;
+	char			*ber;
+	int			x;
+	int			y;
+	int			move;
+	int			c_count;
+	int			p_count;
+	int			s_count;
+	int			w_count;
+	int			e_count;
+}	t_map;
+
+void	error_exit(int i);

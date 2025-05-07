@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   map_check.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/07 13:24:23 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/07 04:25:34 by mahkilic      ########   odam.nl         */
+/*   Created: 2025/05/07 04:26:00 by mahkilic      #+#    #+#                 */
+/*   Updated: 2025/05/07 04:27:52 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../include/so_long.h"
 
-void	error_exit(int i)
+void	check_map_name(char *str)
 {
-	if (i == 0)
-		ft_putstr_fd("ERROR: Incorrect input!", STDERR_FILENO);
-	else if (i == 1)
-		ft_putstr_fd("ERROR: Invalid map!", STDERR_FILENO);
-	else if (i == 2)
-		ft_putstr_fd((char *)mlx_strerror(mlx_errno), STDERR_FILENO);
-	write(1, "\n", STDERR_FILENO);
-	exit(1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_map	map;
-	int	fd;
-	
-	if (argc != 2)
+	while (*str != '.')
+	{
+		str++;
+		if (!*str)
+			error_exit(0);
+	}
+	if (ft_strcmp(str, ".ber"))
 		error_exit(0);
-	return (0);
 }
