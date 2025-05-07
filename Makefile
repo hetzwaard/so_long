@@ -15,7 +15,7 @@ MLXDIR = include/MLX42/build
 MLX = $(MLXDIR)/libmlx42.a
 
 # Source files and object files
-SRCS = $(SRCDIR)/main.c \
+SRCS =	$(SRCDIR)/so_long.c $(SRCDIR)/map/map_check.c $(SRCDIR)/map/map_init.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

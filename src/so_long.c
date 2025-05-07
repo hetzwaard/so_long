@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   so_long.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:24:23 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/07 04:25:34 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/07 06:10:12 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@ void	error_exit(int i)
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
-	int	fd;
-	
+	t_map		map;
+	int			fd;
+
 	if (argc != 2)
 		error_exit(0);
+	map_name(argv[1]);
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		error_exit(0);
+	map.map = map_read(open(argv[1], O_RDONLY), map_line(fd));
+	map_init(&map);
 	return (0);
 }
