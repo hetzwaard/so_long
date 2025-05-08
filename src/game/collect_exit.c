@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/08 15:48:12 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/08 16:27:48 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 17:20:06 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	collect_exit(t_map *map)
 
 	if (map->c_count == 0)
 	{
-		if (check_move(map, 'C', 0, 0))
+		if (check_move(map, 'E', 0, 0))
 		{
 			map->player->instances[0].enabled = false;
 			mlx_close_window(map->mlx);

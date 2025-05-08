@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/07 18:28:34 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/08 16:27:22 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 17:19:08 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void	map_build(t_map *map)
 	int	x;
 
 	y = 0;
-	map_image(map, &map->player, "../textures/pete.png");
-	map_image(map, &map->space, "../textures/space.png");
-	map_image(map, &map->wall, "../textures/wall.png");
-	map_image(map, &map->collect, "../textures/collect.png");
-	map_image(map, &map->exit, "../textures/exit.png");
+	map_image(map, &map->player, "src/textures/pete.png");
+	map_image(map, &map->space, "src/textures/space.png");
+	map_image(map, &map->wall, "src/textures/wall.png");
+	map_image(map, &map->collect, "src/textures/collect.png");
+	map_image(map, &map->exit, "src/textures/exit.png");
 	while (map->y > y)
 	{
 		x = 0;
