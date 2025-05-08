@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:24:23 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/07 06:10:12 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 11:40:11 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	error_exit(int i)
 {
 	if (i == 0)
-		ft_putstr_fd("ERROR: Incorrect input!", STDERR_FILENO);
+		ft_putstr_fd("Error\nIncorrect input!", STDERR_FILENO);
 	else if (i == 1)
-		ft_putstr_fd("ERROR: Invalid map!", STDERR_FILENO);
+		ft_putstr_fd("Error\nnvalid map!", STDERR_FILENO);
 	else if (i == 2)
 		ft_putstr_fd((char *)mlx_strerror(mlx_errno), STDERR_FILENO);
 	write(1, "\n", STDERR_FILENO);
