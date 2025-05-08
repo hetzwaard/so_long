@@ -15,7 +15,14 @@ MLXDIR = include/MLX42/build
 MLX = $(MLXDIR)/libmlx42.a
 
 # Source files and object files
-SRCS =	$(SRCDIR)/so_long.c $(SRCDIR)/map/map_check.c $(SRCDIR)/map/map_init.c $(SRCDIR)/game/flood_fill.c
+SRCS =	$(SRCDIR)/main.c \
+			$(SRCDIR)/game/collect_exit.c \
+			$(SRCDIR)/game/error.c \
+			$(SRCDIR)/game/flood_fill.c \
+			$(SRCDIR)/game/move.c \
+			$(SRCDIR)/map/map_build.c \
+			$(SRCDIR)/map/map_check.c \
+			$(SRCDIR)/map/map_init.c 
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

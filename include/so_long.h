@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:25:18 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/07 06:11:05 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 16:28:27 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,16 @@ typedef struct s_map
 }	t_map;
 
 void	error_exit(int i);
+void	error_mlx(t_map *map);
 void	map_name(char *str);
 char	**map_read(int fd, int size);
 int		map_line(int fd);
-void		map_init(t_map *map);
-void		map_name(char *str);
+void	map_init(t_map *map);
+void	map_name(char *str);
+void	map_depth(t_map *map);
+void	map_build(t_map *map);
 char	**map_dup(t_map *map);
 void	flood_fill(t_map *map);
+void	collect_exit(t_map *map);
+int		check_move(t_map *map, char collect, int x, int y);
+void	move(mlx_key_data_t key, void	*param);

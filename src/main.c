@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   so_long.c                                          :+:    :+:            */
+/*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:24:23 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/08 11:40:11 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 16:12:41 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-void	error_exit(int i)
-{
-	if (i == 0)
-		ft_putstr_fd("Error\nIncorrect input!", STDERR_FILENO);
-	else if (i == 1)
-		ft_putstr_fd("Error\nnvalid map!", STDERR_FILENO);
-	else if (i == 2)
-		ft_putstr_fd((char *)mlx_strerror(mlx_errno), STDERR_FILENO);
-	write(1, "\n", STDERR_FILENO);
-	exit(1);
-}
 
 int	main(int argc, char **argv)
 {
@@ -41,5 +29,11 @@ int	main(int argc, char **argv)
 	map.mlx = mlx_init(map.x * 128, map.y * 128, "so_long", false);
 	if (!map.mlx)
 		error_exit(2);
+	map_build(&map);
+	map_depth(&map);
+	mlx_key_hook(map.mlx, &move, &map);
+	mlx_loop(map.mlx);
+	mlx_terminate(map.mlx);
+	ft_free_arr(map.map);
 	return (0);
 }

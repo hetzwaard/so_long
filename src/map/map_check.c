@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/05/07 04:26:00 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/07 05:54:49 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/08 15:51:29 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ char	**map_dup(t_map *map)
 		i++;
 	}
 	return (map_dup);
+}
+
+void	map_depth(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	map->player->instances[0].z = 3;
+	map->exit->instances[0].z = 1;
+	while (i < map->w_count)
+		map->wall->instances[i++].z = 1;
+	i = 0;
+	while (i < map->s_count)
+		map->space->instances[i++].z = 0;
+	i = 0;
+	while (i < map->c_count)
+		map->collect->instances[i++].z = 2;
 }
 
 void	map_name(char *str)
