@@ -19,7 +19,7 @@ void	check_exit(t_map *map, int x, int y)
 	map->map[y][x] = '0';
 }
 
-int	check_move(t_map *map, char collect, int x, int y)
+int	check_collect(t_map *map, char collect, int x, int y)
 {
 	x += map->player->instances[0].x / 96;
 	y += map->player->instances[0].y / 96;
