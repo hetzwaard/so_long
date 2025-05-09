@@ -47,5 +47,5 @@ void	map_build(t_map *map);
 char	**map_dup(t_map *map);
 void	flood_fill(t_map *map);
 void	collect_exit(t_map *map);
-int		check_move(t_map *map, char collect, int x, int y);
+int		check_collect(t_map *map, char collect, int x, int y);
 void	move(mlx_key_data_t key, void	*param);

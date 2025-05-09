@@ -14,7 +14,7 @@
 
 static void	move_left(t_map *map)
 {
-	if (check_move(map, '1', -1, 0))
+	if (check_collect(map, '1', -1, 0))
 		return ;
 	map->player->instances[0].x -= 96;
 	map->move++;
@@ -24,7 +24,7 @@ static void	move_left(t_map *map)
 
 static void	move_right(t_map *map)
 {
-	if (check_move(map, '1', 1, 0))
+	if (check_collect(map, '1', 1, 0))
 		return ;
 	map->player->instances[0].x += 96;
 	map->move++;
@@ -34,7 +34,7 @@ static void	move_right(t_map *map)
 
 static void	move_down(t_map *map)
 {
-	if (check_move(map, '1', 0, 1))
+	if (check_collect(map, '1', 0, 1))
 		return ;
 	map->player->instances[0].y += 96;
 	map->move++;
@@ -44,7 +44,7 @@ static void	move_down(t_map *map)
 
 static void	move_up(t_map *map)
 {
-	if (check_move(map, '1', 0, -1))
+	if (check_collect(map, '1', 0, -1))
 		return ;
 	map->player->instances[0].y -= 96;
 	map->move++;

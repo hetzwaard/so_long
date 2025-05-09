@@ -34,13 +34,13 @@ void	collect_exit(t_map *map)
 
 	if (map->c_count == 0)
 	{
-		if (check_move(map, 'E', 0, 0))
+		if (check_collect(map, 'E', 0, 0))
 		{
 			map->player->instances[0].enabled = false;
 			mlx_close_window(map->mlx);
 		}
 	}
-	else if (check_move(map, 'C', 0, 0))
+	else if (check_collect(map, 'C', 0, 0))
 	{
 		i = 0;
 		while (map->player->instances[0].x != map->collect->instances[i].x
