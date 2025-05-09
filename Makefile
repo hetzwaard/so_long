@@ -38,13 +38,12 @@ GRAY		=	\033[0;90m
 all: $(LIBFT) $(MLX) $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(GRAY)Linking $(NAME)..."
+	@echo "$(GRAY)Building so_long..."
 	@$(CC) $(CFLAGS) $(OBJS) -I$(INCDIR) $(LIBFT) $(MLXFLAGS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) has been created successfully."
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(dir $@)
-	@echo "$(GRAY)Compiling $<..."
 	@$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -I$(MLXDIR) -c $< -o $@
 
 $(LIBFT):
