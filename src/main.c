@@ -21,6 +21,8 @@ void	so_long(char *file_name)
 	if (fd < 0)
 		error_exit(0, &map);
 	map.map = map_read(open(file_name, O_RDONLY), map_line(fd));
+	if (!map.map)
+		error_exit(1, &map);
 	map_name(file_name);
 	map_init(&map);
 	flood_fill(&map);
