@@ -35,7 +35,7 @@ typedef struct s_map
 	int			e_count;
 }	t_map;
 
-void	error_exit(int i);
+void	error_exit(int i, t_map *map);
 void	error_mlx(t_map *map);
 void	map_name(char *str);
 char	**map_read(int fd, int size);

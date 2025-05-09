@@ -76,5 +76,5 @@ void	flood_fill(t_map *map)
 	error = find_wall(find_next(map_d, x, y));
 	ft_free_arr(map_d);
 	if (!error)
-		error_exit(1);
+		error_exit(1, map);
 }

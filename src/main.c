@@ -12,28 +12,33 @@
 
 #include "../include/so_long.h"
 
-int	main(int argc, char **argv)
+void	so_long(char *file_name)
 {
-	t_map		map;
-	int			fd;
+	t_map	map;
+	int		fd;
 
-	if (argc != 2)
-		error_exit(0);
-	map_name(argv[1]);
-	fd = open(argv[1], O_RDONLY);
+	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		error_exit(0);
-	map.map = map_read(open(argv[1], O_RDONLY), map_line(fd));
+		error_exit(0, &map);
+	map.map = map_read(open(file_name, O_RDONLY), map_line(fd));
+	map_name(file_name);
 	map_init(&map);
 	flood_fill(&map);
 	map.mlx = mlx_init(map.x * 96, map.y * 96, "so_long", false);
 	if (!map.mlx)
-		error_exit(2);
+		error_exit(2, &map);
 	map_build(&map);
 	map_depth(&map);
 	mlx_key_hook(map.mlx, &move, &map);
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
 	ft_free_arr(map.map);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+		error_exit(0, 0);
+	so_long(argv[1]);
 	return (0);
 }

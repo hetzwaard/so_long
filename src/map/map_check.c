@@ -52,10 +52,10 @@ void	map_name(char *str)
 	{
 		str++;
 		if (!*str)
-			error_exit(0);
+			error_exit(0, 0);
 	}
 	if (ft_strcmp(str, ".ber"))
-		error_exit(0);
+		error_exit(0, 0);
 }
 
 char	**map_read(int fd, int size)
@@ -64,6 +64,8 @@ char	**map_read(int fd, int size)
 	char	**map;
 
 	i = 0;
+	if (fd < 0)
+		error_exit(0, 0);
 	map = ft_calloc(size + 1, sizeof(char *));
 	if (!map)
 		exit(1);

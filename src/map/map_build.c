@@ -46,6 +46,7 @@ void	map_image(t_map *map, mlx_image_t **image, const char *png)
 	*image = mlx_texture_to_image(map->mlx, texture);
 	if (!*image)
 		error_mlx(map);
+	mlx_delete_texture(texture);
 }
 
 void	map_build(t_map *map)

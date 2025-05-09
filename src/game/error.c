@@ -12,7 +12,7 @@
 
 #include "../../include/so_long.h"
 
-void	error_exit(int i)
+void	error_exit(int i, t_map *map)
 {
 	if (i == 0)
 		ft_putstr_fd("Error\nIncorrect input!", STDERR_FILENO);
@@ -21,6 +21,9 @@ void	error_exit(int i)
 	else if (i == 2)
 		ft_putstr_fd((char *)mlx_strerror(mlx_errno), STDERR_FILENO);
 	write(1, "\n", STDERR_FILENO);
+	if (map->map)
+		ft_free_arr(map->map);
+	map->map = NULL;
 	exit(1);
 }
 

@@ -24,9 +24,9 @@ void	map_wall(t_map *map)
 		while (map->map[y][x])
 		{
 			if ((y == 0 || y == (map->y - 1)) && map->map[y][x] != '1')
-				error_exit(1);
+				error_exit(1, map);
 			if ((x == 0 || x == (map->x - 1)) && map->map[y][x] != '1')
-				error_exit(1);
+				error_exit(1, map);
 			x++;
 		}
 		y++;
@@ -48,9 +48,9 @@ void	map_count(char c, t_map *map)
 			map->e_count++;
 	}
 	else
-		error_exit(1);
+		error_exit(1, map);
 	if (map->p_count > 1 || map->e_count > 1)
-		error_exit(1);
+		error_exit(1, map);
 }
 
 int	map_len(char *str, t_map *map)
@@ -85,14 +85,14 @@ void	map_init(t_map *map)
 	{
 		i = map_len(map->map[map->y], map);
 		if ((i != map->x && map->y))
-			error_exit(1);
+			error_exit(1, map);
 		map->x = i;
 		map->y++;
 	}
 	if (map->x < 3 || map->y < 3)
-		error_exit(1);
+		error_exit(1, map);
 	if (map->p_count < 1 || map->e_count < 1 || map->c_count < 1
 		|| map->w_count < 7)
-		error_exit(1);
+		error_exit(1, map);
 	map_wall(map);
 }
