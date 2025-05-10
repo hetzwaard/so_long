@@ -12,18 +12,18 @@
 
 #include "../include/so_long.h"
 
-void	so_long(char *file_name)
+void	so_long(char *map_ber)
 {
 	t_map	map;
 	int		fd;
 
-	fd = open(file_name, O_RDONLY);
+	fd = open(map_ber, O_RDONLY);
 	if (fd < 0)
 		error_exit(0, &map);
-	map.map = map_read(open(file_name, O_RDONLY), map_line(fd));
+	map.map = map_read(open(map_ber, O_RDONLY), map_line(fd));
 	if (!map.map)
 		error_exit(1, &map);
-	map_name(file_name);
+	map_name(map_ber);
 	map_init(&map);
 	flood_fill(&map);
 	map.mlx = mlx_init(map.x * 96, map.y * 96, "so_long", false);
