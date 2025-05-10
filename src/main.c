@@ -6,7 +6,7 @@
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 13:24:23 by mahkilic      #+#    #+#                 */
-/*   Updated: 2025/05/08 16:30:52 by mahkilic      ########   odam.nl         */
+/*   Updated: 2025/05/10 02:49:00 by mahkilic      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	so_long(char *file_name)
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
-		error_exit(0, 0);
+		return (write(2, "Error\nIncorrect input!\n", 23), 0);
 	so_long(argv[1]);
 	return (0);
 }
