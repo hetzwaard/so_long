@@ -15,7 +15,7 @@ MLXDIR = include/MLX42/build
 MLX = $(MLXDIR)/libmlx42.a
 
 # Source files and object files
-SRCS =	$(SRCDIR)/main.c \
+SRCS =	$(SRCDIR)/so_long.c \
 			$(SRCDIR)/game/collect_exit.c \
 			$(SRCDIR)/game/error.c \
 			$(SRCDIR)/game/flood_fill.c \
