@@ -19,7 +19,7 @@ void	so_long(char *map_ber)
 
 	fd = open(map_ber, O_RDONLY);
 	if (fd < 0)
-		error_exit(0, &map);
+		error_fd(1);
 	map.map = map_read(open(map_ber, O_RDONLY), map_line(fd));
 	if (!map.map)
 		error_exit(1, &map);

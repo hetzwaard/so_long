@@ -12,6 +12,15 @@
 
 #include "../../include/so_long.h"
 
+void	error_fd(int i, int fd)
+{
+	if (i == 1)
+		ft_putstr_fd("Error\nInvalid map!", STDERR_FILENO);
+	close(fd);
+	write(1, "\n", STDERR_FILENO);
+	exit (1);
+}
+
 void	error_exit(int i, t_map *map)
 {
 	if (i == 0)
