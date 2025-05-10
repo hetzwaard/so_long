@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   so_long.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mahkilic <mahkilic@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -40,7 +40,7 @@ void	so_long(char *map_ber)
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
-		return (write(2, "Error\nIncorrect input!\n", 23), 0);
+		return (ft_putstr_fd("Error\nIncorrect input!\n", STDERR_FILENO), 0);
 	so_long(argv[1]);
 	return (0);
 }
