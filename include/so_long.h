@@ -37,7 +37,7 @@ typedef struct s_map
 
 void	error_exit(int i, t_map *map);
 void	error_mlx(t_map *map);
-void	error_fd(int i);
+void	error_fd(int i, int fd);
 void	map_name(char *str);
 char	**map_read(int fd, int size);
 int		map_line(int fd);
