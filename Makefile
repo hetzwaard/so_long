@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 LIBS = -L$(LIBFTDIR) -lft -L$(MLXDIR) -lmlx42 -ldl -lglfw -pthread -lm
 INCLUDES = -Iinclude
 MLXFLAGS = $(LIBS) $(INCLUDES)
