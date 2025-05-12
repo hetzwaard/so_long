@@ -35,18 +35,18 @@ typedef struct s_map
 	int			e_count;
 }	t_map;
 
+void	error_fd(int i, int fd);
 void	error_exit(int i, t_map *map);
 void	error_mlx(t_map *map);
-void	error_fd(int i, int fd);
 
 void	flood_fill(t_map *map);
 void	move(mlx_key_data_t key, void	*param);
 
 char	**map_read(int fd, int size);
 char	**map_dup(t_map *map);
-int		map_line(int fd);
-void	map_name(char *str);
 void	map_init(t_map *map);
-void	map_name(char *str);
 void	map_depth(t_map *map);
 void	map_build(t_map *map);
+void	map_name(char *str);
+void	map_name(char *str);
+int		map_line(int fd);
